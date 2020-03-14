@@ -7,7 +7,7 @@ import ToDoComponent from "./components/ToDoComponent";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Header backgroundColor={'#AD42EA'} centerComponent={{text:'TODO list', style:{color: '#fff', textTransform: 'uppercase', fontWeight: 'bold', fontSize: 22}}} containerStyle={styles.header}/>
+      <Header backgroundColor={'#9227CF'} centerComponent={{text:'TODO list', style:{color: '#fff', textTransform: 'uppercase', fontWeight: 'bold', fontSize: 22}}} containerStyle={styles.header}/>
       <LinearGradient colors={['#000E04', '#150810']} start={[0.2, 0.3]}>
         <SafeAreaView>
           <ScrollView contentContainerStyle={styles.mainBlock}>

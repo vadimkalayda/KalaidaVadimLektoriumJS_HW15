@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Dimensions, TextInput, ScrollView, FlatList, KeyboardAvoidingView, Button, SafeAreaView } from 'react-native';
-import { Input } from 'react-native-elements';
+import { StyleSheet, Text, View, Dimensions, TextInput, ScrollView, FlatList, Button, SafeAreaView } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function ToDoComponent () {
@@ -34,14 +34,14 @@ export default function ToDoComponent () {
         <View style={styles.toDoContainer}>
           <View style={styles.toDoTopForm}>
             <TextInput placeholder={'ToDo Item'} onChangeText={(itemText) => {setToDoItemText(itemText)}}
-             value={todoItemText} placeholderTextColor={'#AD42EA'} style={styles.toDoTextInput} autoCorrect={true}/>
-            <Button onPress={addToDoItem} color={'#AD42EA'} title={'Add Item'}>Add Item</Button>
+             value={todoItemText} placeholderTextColor={'#F3349C'} style={styles.toDoTextInput} autoCorrect={true}/>
+            <Button onPress={addToDoItem} color={'#F3349C'} title={'Add Item'}>Add Item</Button>
           </View>
           <View style={styles.toDoBottomItems}>
             <FlatList data={todoItems} renderItem={({item, index}) => {
               if(item.deleted === false) {
                 return(
-                  <View style={styles.toDoItem} key={index}>
+                  <LinearGradient style={styles.toDoItem} colors={['#9227CF', '#F3349C', '#9227CF']} start={[0.1, 0.1]} end={[0.85, 0.8]}>
                     <View style={{width: 35, alignItems: 'center'}}>
                       <Text onPress={() => {
                         item.checked = !item.checked;
@@ -61,7 +61,7 @@ export default function ToDoComponent () {
                         ✗
                       </Text>
                     </View>
-                  </View>
+                  </LinearGradient>
                 );
               }
             }} />
@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
   toDoTextInput: {
     width: width - 75,
     height: 50,
-    color: '#AD42EA',
-    borderBottomColor: '#AD42EA',
+    color: '#F3349C',
+    borderBottomColor: '#F3349C',
     borderBottomWidth: 1
   },
   toDoBottomItems : {
@@ -102,8 +102,7 @@ const styles = StyleSheet.create({
     width: width - 75,
     minHeight: 40,
     borderRadius: 10,
-    backgroundColor: '#9227CF',
-    marginBottom: 25,
+    marginBottom: 10,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center'
